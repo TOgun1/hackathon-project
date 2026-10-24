@@ -1,4 +1,24 @@
 {"id": "coffee",
-"id": "Iphone_Upgrade",
-"id": "Gym_Membership",
-"id": "Netflix_Upgrade"
+"description": "A daily £3.50 coffee every weekday from starbucks",
+"ticker": "SBUX",
+"cost": "3.50",
+"frequency": "daily"
+}
+{"id": "biannual_iphone_upgrade",
+"description": "Upgrading to the latest £900 Iphone model every 2 years on a £37.50 monthly contract",
+"ticker": "AAPL",
+"cost": "37.50",
+"frequency": "monthly"
+}
+{"id": "gym_membership",
+"description": "A standard  monthly £24 gym group membership",
+"ticker": "GYM.L",
+"cost": "24",
+"frequency": "monthly"
+}
+{"id": "netflix_membership",
+"description": "A standard  monthly £14 ad-free netflix membership",
+"ticker": "NFLX",
+"cost": "14",
+"frequency": "monthly"
+}
