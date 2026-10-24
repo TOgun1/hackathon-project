@@ -2,23 +2,27 @@
 "description": "A daily £3.50 coffee every weekday from starbucks",
 "ticker": "SBUX",
 "cost": "3.50",
-"frequency": "daily"
+"frequency": "daily",
+"start_year": "2019"
 }
 {"id": "biannual_iphone_upgrade",
 "description": "Upgrading to the latest £900 Iphone model every 2 years on a £37.50 monthly contract",
 "ticker": "AAPL",
 "cost": "37.50",
-"frequency": "monthly"
+"frequency": "monthly",
+"start_year":"2024"
 }
 {"id": "gym_membership",
 "description": "A standard  monthly £24 gym group membership",
 "ticker": "GYM.L",
 "cost": "24",
-"frequency": "monthly"
+"frequency": "monthly",
+"start_year":"2018"
 }
 {"id": "netflix_membership",
 "description": "A standard  monthly £14 ad-free netflix membership",
 "ticker": "NFLX",
 "cost": "14",
-"frequency": "monthly"
+"frequency": "monthly",
+"start_year":"2022"
 }
