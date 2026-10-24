@@ -10,7 +10,7 @@ def load_presets():
         return []
     
     with open(path, "r") as f:
-        return json.load(f)
+        return {p["id"]: p for p in json.load(f)}
 
 @st.cache_data
 def load_stock_historical_data(ticker_symbol, start_date):
@@ -18,7 +18,10 @@ def load_stock_historical_data(ticker_symbol, start_date):
         df = yf.download(ticker_symbol, start=start_date,auto_adjust=True, progress=False)
         if df.empty:
             raise ValueError(f"No data found for ticker symbol: {ticker_symbol}")
-        return df[['Close']].rename(columns={'Close': 'Price'})
+        prices=df['Close']
+        if isinstance(prices, pd.DataFrame):
+            prices = prices.iloc[:, 0]
+        return prices.to_frame("Price")
     except Exception as e:
         cache = pd.read_csv("data/cache.csv", index_col="Dates", parse_dates=True)
         if ticker_symbol in cache.columns:

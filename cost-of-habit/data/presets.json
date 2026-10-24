@@ -1,28 +1,30 @@
-{"id": "coffee",
-"description": "A daily £3.50 coffee every weekday from starbucks",
-"ticker": "SBUX",
-"cost": "3.50",
-"frequency": "daily",
-"start_year": "2019"
-}
-{"id": "biannual_iphone_upgrade",
-"description": "Upgrading to the latest £900 Iphone model every 2 years on a £37.50 monthly contract",
-"ticker": "AAPL",
-"cost": "37.50",
-"frequency": "monthly",
-"start_year":"2024"
-}
-{"id": "gym_membership",
-"description": "A standard  monthly £24 gym group membership",
-"ticker": "GYM.L",
-"cost": "24",
-"frequency": "monthly",
-"start_year":"2018"
-}
-{"id": "netflix_membership",
-"description": "A standard  monthly £14 ad-free netflix membership",
-"ticker": "NFLX",
-"cost": "14",
-"frequency": "monthly",
-"start_year":"2022"
-}
+[
+    {"id": "Coffee",
+    "description": "A daily £3.50 coffee every weekday from starbucks",
+    "ticker": "SBUX",
+    "cost": "3.50",
+    "frequency": "daily",
+    "start_year": "2019"
+    },
+    {"id": "Phone Upgrade",
+    "description": "Upgrading to the latest £900 Iphone model every 2 years on a £37.50 monthly contract",
+    "ticker": "AAPL",
+    "cost": "37.50",
+    "frequency": "monthly",
+    "start_year":"2024"
+    },
+    {"id": "Gym Membership",
+    "description": "A standard  monthly £24 gym group membership",
+    "ticker": "GYM.L",
+    "cost": "24",
+    "frequency": "monthly",
+    "start_year":"2018"
+    },
+    {"id": "Netflix Membership",
+    "description": "A standard  monthly £14 ad-free netflix membership",
+    "ticker": "NFLX",
+    "cost": "14",
+    "frequency": "monthly",
+    "start_year":"2022"
+    }
+]

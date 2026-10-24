@@ -1,15 +1,40 @@
 ﻿import streamlit as st
 import pandas as pd
-
+from src.data_loader import load_presets
+from src.engine import calculate_coh
+import plotly as px
+presets = load_presets()
 st.title("Cost of Habit")
 st.write("What if you bought equity instead of everyday expenses?")
 
-st.sidebar.success("Select a preset")
-
-st.markdown(
-    """
-    What if your daily starbuck was a share of their enterprise instead?
-
-See how much your everyday spending would be worth today if you had invested it in the world’s biggest companies.
-"""
+st.sidebar.title("Preset Options")
+preset = st.sidebar.selectbox(
+    "Choose a preset:",
+    ["Coffee","Phone Upgrade","Gym Membership","Netflix Subscription"],
+    format_func=lambda k: k.replace("_", " ").title(),
 )
+selected = presets[preset]
+frequency_map = {
+    "Daily": "B",
+    "Weekly": "W-FRI",
+    "Monthly": "ME"
+}
+date=st.selectbox("Choose a start date:", ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"])
+freq=st.selectbox("Choose the frequency of your habit:", ["Daily", "Weekly", "Monthly"])
+ticker = selected["ticker"]
+default_cost = selected["cost"]
+cost=st.number_input("Enter the cost of your habit (Optional):", min_value=0.0,value=float(default_cost), step=0.01, format="%.2f")
+frequency = frequency_map[freq]
+if st.button("Calculate"):
+    # Call the calculation function here
+    try:
+        results = calculate_coh(ticker, cost if cost > 0 else default_cost, date, frequency)
+        col1, col2, col3 = st.columns(3)
+        col1.metric("Cash Spent", f"£{results['total_cash']}")
+        col2.metric("Portfolio Value", f"£{results['portfolio_value']}", f"£{results['profit']}")
+        col3.metric("ROI", f"{results['profit_pct']}%")
+
+        st.line_chart(results["df"])
+    except Exception as e:
+        st.error(f"An error occurred during calculation: {e}")
+    pass

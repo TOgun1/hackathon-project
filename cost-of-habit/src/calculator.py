@@ -12,7 +12,7 @@ def calculate_dca(df, frequency, cost):
     df2['cm_shares'] = df2['shares_bought'].cumsum()
 
     df2['portfolio_value'] = df2['cm_shares'] * df2['Price']
-    recent = df2['cash_spent'].iloc[-1] # Gets the last item
+    recent = df2.iloc[-1] # Gets the last item
     total_spent = float(recent['cumulative_cash'])
     final = float(recent['portfolio_value'])
 
