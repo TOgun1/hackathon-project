@@ -20,7 +20,7 @@
     "frequency": "monthly",
     "start_year":"2018"
     },
-    {"id": "Netflix Membership",
+    {"id": "Netflix Subscription",
     "description": "A standard  monthly £14 ad-free netflix membership",
     "ticker": "NFLX",
     "cost": "14",
