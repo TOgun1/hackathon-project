@@ -26,7 +26,6 @@ default_cost = selected["cost"]
 cost=st.number_input("Enter the cost of your habit (Optional):", min_value=0.0,value=float(default_cost), step=0.01, format="%.2f")
 frequency = frequency_map[freq]
 if st.button("Calculate"):
-    # Call the calculation function here
     try:
         results = calculate_coh(ticker, cost if cost > 0 else default_cost, date, frequency)
         col1, col2, col3 = st.columns(3)
