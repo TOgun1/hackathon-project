@@ -10,7 +10,7 @@ def load_presets():
     
     try:
         with open(file_path, "r") as f:
-            return json.load(f)
+            return {p["id"]: p for p in json.load(f)}
     except FileNotFoundError:
         return {}
 
