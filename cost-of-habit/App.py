@@ -1,4 +1,4 @@
-﻿import streamlit as st
+import streamlit as st
 import pandas as pd
 from src.data_loader import load_presets
 from src.engine import calculate_coh
@@ -11,7 +11,7 @@ st.sidebar.title("Preset Options")
 preset = st.sidebar.selectbox(
     "Choose a preset:",
     ["Coffee","Phone Upgrade","Gym Membership","Netflix Subscription"],
-    format_func=lambda k: k.replace("_", " ").title(),
+
 )
 selected = presets[preset]
 frequency_map = {
