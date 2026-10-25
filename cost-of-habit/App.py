@@ -30,7 +30,7 @@ if st.button("Calculate"):
         results = calculate_coh(ticker, cost if cost > 0 else default_cost, date, frequency)
         col1, col2, col3 = st.columns(3)
         col1.metric("Cash Spent", f"£{results['total_cash']:,.2f}")
-        col2.metric("portfolio_value", f"£{results['portfolio_value']}", f"£{results['profit']}")
+        col2.metric("Portfolio Value", f"£{results['portfolio_value']}", f"£{results['profit']}")
         col3.metric("ROI", f"{results['profit_pct']}%")
 
         chart_data = results['df'].rename(columns={
