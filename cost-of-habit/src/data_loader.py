@@ -3,14 +3,16 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 import yfinance as yf
-
+import os
 def load_presets():
-    path = Path("data/presets.json")
-    if not path.exists():
-        return []
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(base_dir, "..", "data", "presets.json")
     
-    with open(path, "r") as f:
-        return {p["id"]: p for p in json.load(f)}
+    try:
+        with open(file_path, "r") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
 
 @st.cache_data
 def load_stock_historical_data(ticker_symbol, start_date):
